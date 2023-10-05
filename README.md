@@ -51,11 +51,11 @@
    );
 
    INSERT INTO packed_animals (Genus_name, Class_id)
-   VALUES ('Лошади', 1),
-   ('Ослы', 1),
+   VALUES ('Лошади', 1),\
+   ('Ослы', 1),\
    ('Верблюды', 1);
 
-CREATE TABLE home\*animals
+CREATE TABLE home_animals
 (
 Id INT AUTO_INCREMENT PRIMARY KEY,
 Genus_name VARCHAR (20),
@@ -64,7 +64,7 @@ FOREIGN KEY (Class_id) REFERENCES animal_classes (Id) ON DELETE
 CASCADE ON UPDATE CASCADE
 );
 
-INSERT INTO home\*animals (Genus_name, Class_id)
+INSERT INTO home_animals (Genus_name, Class_id)
 VALUES ('Кошки', 2),
 ('Собаки', 2),
 ('Хомяки', 2);
@@ -78,12 +78,14 @@ Commands VARCHAR(50),
 Genus_id int,
 Foreign KEY (Genus_id) REFERENCES home_animals (Id) ON DELETE
 CASCADE ON UPDATE CASCADE
-); 9. Заполнить низкоуровневые таблицы именами(животных),
-командами которые они выполняют и датами рождения
-INSERT INTO cats (Name, Birthday, Commands, Genus_id)
-VALUES ('Пупа', '2011-01-01', 'кс-кс-кс', 1),
-('Олег', '2016-01-01', "отставить!", 1),
-('Тьма', '2017-01-01', "", 1);
+);\
+
+9.  Заполнить низкоуровневые таблицы именами(животных),
+    командами которые они выполняют и датами рождения
+    INSERT INTO cats (Name, Birthday, Commands, Genus_id)
+    VALUES ('Пупа', '2011-01-01', 'кс-кс-кс', 1),
+    ('Олег', '2016-01-01', "отставить!", 1),
+    ('Тьма', '2017-01-01', "", 1);
 
 CREATE TABLE dogs
 (
@@ -97,9 +99,9 @@ CASCADE ON UPDATE CASCADE
 );
 
 INSERT INTO dogs (Name, Birthday, Commands, Genus_id)
-VALUES ('Дик', '2020-01-01', 'ко мне, лежать, лапу, голос', 2),
-('Граф', '2021-06-12', "сидеть, лежать, лапу", 2),
-('Шарик', '2018-05-01', "сидеть, лежать, лапу, след, фас", 2),
+VALUES ('Дик', '2020-01-01', 'ко мне, лежать, лапу, голос', 2),\
+('Граф', '2021-06-12', "сидеть, лежать, лапу", 2),\
+('Шарик', '2018-05-01', "сидеть, лежать, лапу, след, фас", 2),\
 ('Босс', '2021-05-10', "сидеть, лежать, фу, место", 2);
 
 CREATE TABLE hamsters
@@ -150,6 +152,7 @@ VALUES ('Первый', '2019-04-10', NULL, 2),
 ('Второй', '2020-03-12', "", 2),
 ('Третий', '2021-07-12', "", 2),
 ('Четвертый', '2022-12-10', NULL, 2);
+
 CREATE TABLE camels
 (
 Id INT AUTO_INCREMENT PRIMARY KEY,
